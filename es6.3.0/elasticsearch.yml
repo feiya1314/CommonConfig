@@ -92,6 +92,7 @@ gateway.recover_after_nodes: 1
 #
 #action.destructive_requires_name: true
 
+searchguard.ssl_only: true
 
 searchguard.ssl.transport.enabled: true
 searchguard.ssl.transport.keystore_type: JKS
