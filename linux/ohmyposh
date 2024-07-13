@@ -1,0 +1,25 @@
+#安装
+Install-Module -Name PowerShellGet -Force
+winget install JanDeDobbeleer.OhMyPosh -s winget
+PowerShellGet\Install-Module posh-git -Scope allusers -Force
+ Install-Module PSReadLine -Force -scope allusers
+
+
+# notepad.exe $PROFILE 配置
+
+oh-my-posh init pwsh --config 'C:\Users\yufei\AppData\Local\Programs\oh-my-posh\themes\nome-dim.omp.json' | Invoke-Expression
+
+# git的自动补全
+Import-Module posh-git
+
+#Tab键会出现自动补全菜单
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+# 上下方向键箭头，搜索历史中进行自动补全
+
+# 设置预测文本来源为历史记录
+Set-PSReadLineOption -PredictionSource History
+
+# 每次回溯输入历史，光标定位于输入内容末尾
+Set-PSReadLineOption -HistorySearchCursorMovesToEnd

@@ -1,0 +1,55 @@
+安装 oh-my-zsh，已替换国内地址
+
+sh -c "$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)"
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+#这一步就是安装完成了 source ~/.zshrc使用此命令刷新下
+
+如果在补全插件安装source ~/.zshrc后没有命令补全的效果，则如下手动添加进：
+
+vim ～/.zshrc
+1
+找到plugins=(git)此行命令，更改为plugins=(git zsh-autosuggestions zsh-completions zsh-syntax-highlighting)，写入并退出，再次运行source ~/.zshrc。
+
+vim ~/.zshrc
+plugins=(
+        git
+        man
+        zsh-autosuggestions
+        zsh-completions
+        zsh-syntax-highlighting
+        docker
+        docker-compose
+)
+autoload -U compinit && compinit
+# 管理员用户可以管理网络、软件安装、服务管理、进程管理、docker 管理
+admin  ALL=(ALL) NOPASSWD: NETWORKING, SOFTWARE, SERVICES, LOCATE, STORAGE, PROCESSES, DRIVERS, /usr/bin/docker
+admin  ALL=(ALL) DELEGATING
+rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+yum install https://www.elrepo.org/elrepo-release-7.el7.elrepo.noarch.rpm
+yum --enablerepo=elrepo-kernel install -y kernel-lt
+chown -h /opt/software
+chown -R /opt/data /opt/module /opt/log
+sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine
+
+
+sudo yum install -y yum-utils
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install -y docker-ce docker-ce-cli containerd.io
+# 把 admin 加入 docker 组
+sudo usermod -aG docker admin
+# 刷新 docker 组
+newgrp docker
+# jenkins 加速
+sed -i 's/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g' default.json && sed -i 's/http:\/\/www.google.com/https:\/\/www.baidu.com/g' default.json
