@@ -1,3 +1,54 @@
+# ubuntu 更新镜像源 /etc/apt/source.list
+
+###############ubuntu 22.04 LTS (jammy) 配置如下
+deb https://mirrors.aliyun.com/ubuntu/ jammy main restricted universe multiverse
+deb-src https://mirrors.aliyun.com/ubuntu/ jammy main restricted universe multiverse
+
+deb https://mirrors.aliyun.com/ubuntu/ jammy-security main restricted universe multiverse
+deb-src https://mirrors.aliyun.com/ubuntu/ jammy-security main restricted universe multiverse
+
+deb https://mirrors.aliyun.com/ubuntu/ jammy-updates main restricted universe multiverse
+deb-src https://mirrors.aliyun.com/ubuntu/ jammy-updates main restricted universe multiverse
+
+# deb https://mirrors.aliyun.com/ubuntu/ jammy-proposed main restricted universe multiverse
+# deb-src https://mirrors.aliyun.com/ubuntu/ jammy-proposed main restricted universe multiverse
+
+deb https://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe multiverse
+deb-src https://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe multiverse
+
+#############ubuntu 23.04 (lunar) 配置如下
+deb https://mirrors.aliyun.com/ubuntu/ lunar main restricted universe multiverse
+deb-src https://mirrors.aliyun.com/ubuntu/ lunar main restricted universe multiverse
+
+deb https://mirrors.aliyun.com/ubuntu/ lunar-security main restricted universe multiverse
+deb-src https://mirrors.aliyun.com/ubuntu/ lunar-security main restricted universe multiverse
+
+deb https://mirrors.aliyun.com/ubuntu/ lunar-updates main restricted universe multiverse
+deb-src https://mirrors.aliyun.com/ubuntu/ lunar-updates main restricted universe multiverse
+
+# deb https://mirrors.aliyun.com/ubuntu/ lunar-proposed main restricted universe multiverse
+# deb-src https://mirrors.aliyun.com/ubuntu/ lunar-proposed main restricted universe multiverse
+
+deb https://mirrors.aliyun.com/ubuntu/ lunar-backports main restricted universe multiverse
+deb-src https://mirrors.aliyun.com/ubuntu/ lunar-backports main restricted universe multiverse
+
+################ ubuntu 24.04 (noble) 配置如下
+deb https://mirrors.aliyun.com/ubuntu/ noble main restricted universe multiverse
+deb-src https://mirrors.aliyun.com/ubuntu/ noble main restricted universe multiverse
+
+deb https://mirrors.aliyun.com/ubuntu/ noble-security main restricted universe multiverse
+deb-src https://mirrors.aliyun.com/ubuntu/ noble-security main restricted universe multiverse
+
+deb https://mirrors.aliyun.com/ubuntu/ noble-updates main restricted universe multiverse
+deb-src https://mirrors.aliyun.com/ubuntu/ noble-updates main restricted universe multiverse
+
+# deb https://mirrors.aliyun.com/ubuntu/ noble-proposed main restricted universe multiverse
+# deb-src https://mirrors.aliyun.com/ubuntu/ noble-proposed main restricted universe multiverse
+
+deb https://mirrors.aliyun.com/ubuntu/ noble-backports main restricted universe multiverse
+deb-src https://mirrors.aliyun.com/ubuntu/ noble-backports main restricted universe multiverse
+
+
 安装 oh-my-zsh，已替换国内地址
 
 sh -c "$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)"

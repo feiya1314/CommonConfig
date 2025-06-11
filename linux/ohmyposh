@@ -1,13 +1,23 @@
+# 允许ps执行命令
+Set-ExecutionPolicy RemoteSigned
+
 #安装
 Install-Module -Name PowerShellGet -Force
 winget install JanDeDobbeleer.OhMyPosh -s winget
 PowerShellGet\Install-Module posh-git -Scope allusers -Force
  Install-Module PSReadLine -Force -scope allusers
 
+#安装字体
+oh-my-posh font install meslo
 
-# notepad.exe $PROFILE 配置
 
-oh-my-posh init pwsh --config 'C:\Users\yufei\AppData\Local\Programs\oh-my-posh\themes\nome-dim.omp.json' | Invoke-Expression
+# 配置 PowerShell
+
+
+
+# notepad.exe $PROFILE 配置------------------- 配置开始
+
+oh-my-posh init pwsh --config 'C:\Users\feiya\AppData\Local\Programs\oh-my-posh\themes\nome-dim.omp.json' | Invoke-Expression
 
 # git的自动补全
 Import-Module posh-git
@@ -23,3 +33,5 @@ Set-PSReadLineOption -PredictionSource History
 
 # 每次回溯输入历史，光标定位于输入内容末尾
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+
+# notepad.exe $PROFILE ------------------- 配置完成
